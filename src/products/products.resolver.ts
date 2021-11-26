@@ -37,16 +37,7 @@ export class ProductsResolver {
 
   @Query(() => [Products], { name: 'getProducts' })
   public async getProducts(@Args('slug', { type: () => String }) slug: string) {
-    // return null
     try {
-        // return await this.commandBus.execute(
-        //   new CreateProductsCommand(
-        //     input.category_id,
-        //     input.name,
-        //     input.slug,
-        //     input.price,
-        //   ),
-      // );
         return await this.productsService.find();
     } catch (errors) {
         console.log(

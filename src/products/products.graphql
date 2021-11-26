@@ -14,6 +14,12 @@ type Query {
   getProducts: [Products]
 }
 
+type Category {
+  id: Int
+  name: String!
+  slug: String!
+}
+
 input CreatProducts {
   category_id: Int!
   name: String!
@@ -22,7 +28,8 @@ input CreatProducts {
 }
 
 type CreateProductsResponse {
-  category_id: Int!
+  id: Int
+  category: Category
   name: String!
   slug: String!
   price: Int!

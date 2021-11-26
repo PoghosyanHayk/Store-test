@@ -1,5 +1,6 @@
 import { Field, ID } from '@nestjs/graphql';
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Categories } from 'src/categories/categories.entity';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity('products')
 export class Products {
@@ -7,8 +8,11 @@ export class Products {
   @Field(() => ID, { nullable: true })
   id?: number;
 
-  @Column('varchar', { name: 'category_id' })
-  category_id: number;
+  @ManyToOne(
+    () => Categories,
+    category => category.praducts,
+  )
+  category: Categories;
 
   @Column('varchar', { name: 'name' })
   name: string;

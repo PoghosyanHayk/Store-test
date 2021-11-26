@@ -70,8 +70,15 @@ export class Products {
     price: number;
 }
 
+export class Category {
+    id?: number;
+    name: string;
+    slug: string;
+}
+
 export class CreateProductsResponse {
-    category_id: number;
+    id?: number;
+    category?: Category;
     name: string;
     slug: string;
     price: number;
