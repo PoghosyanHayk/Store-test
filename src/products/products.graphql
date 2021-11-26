@@ -1,0 +1,33 @@
+type Products {
+  id: ID
+  categoryId: Int!
+  name: String!
+  slug: String!
+  price: Int!
+}
+
+type Query {
+  me: String
+}
+
+input CreatProducts {
+  categoryId: Int!
+  name: String!
+  slug: String!
+  price: Int!
+}
+
+type CreateProductsResponse {
+  categoryId: Int!
+  name: String!
+  slug: String!
+  price: Int!
+}
+
+type Mutation {
+  createProducts(input: CreatProducts!): CreateProductsResponse
+}
+
+schema {
+  query: Query
+}

@@ -10,7 +10,10 @@ import { AppResolver } from './app.resolver';
 import { AuthModule } from './auth/auth.module';
 import { JwtModule } from '@nestjs/jwt';
 import { jwtSecret } from './auth/constants';
-
+import { ProductsService } from './products/products.service';
+import { ProductsModule } from './products/products.module';
+import { CategoriesService } from './categories/categories.service';
+import { CategoriesModule } from './categories/categories.module';
 
 @Module({
   imports: [
@@ -39,8 +42,11 @@ import { jwtSecret } from './auth/constants';
       useClass: TypeOrmConfigService,
       inject: [ConfigService],
     }),
-    CqrsModule],
+    CqrsModule,
+    ProductsModule,
+    CategoriesModule,
+  ],
   controllers: [],
-  providers: [AppResolver],
+  providers: [AppResolver, ProductsService, CategoriesService],
 })
 export class AppModule {}

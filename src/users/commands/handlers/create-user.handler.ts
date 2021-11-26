@@ -33,6 +33,8 @@ export class CreateUserHandler implements ICommandHandler<CreateUserCommand> {
     }
 
     private async sendEvent(userId: string, eventBus: EventBus) {
+        console.log("bbbbbbb")
+        
         if(userId !== undefined) {
             console.log("send event UserCreatedEvent");
             eventBus.publish(

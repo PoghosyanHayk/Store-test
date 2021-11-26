@@ -1,0 +1,27 @@
+type Categories {
+  id: ID
+  name: String!
+  slug: String!
+}
+
+type Query {
+  me: String
+}
+
+input CreatCategories {
+  name: String!
+  slug: String!
+}
+
+type CreateCategoriesResponse {
+  name: String!
+  slug: String!
+}
+
+type Mutation {
+  createCategories(input: CreatCategories!): CreateCategoriesResponse
+}
+
+schema {
+  query: Query
+}

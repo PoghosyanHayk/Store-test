@@ -17,7 +17,6 @@ export const CurrentUser = createParamDecorator(
 );
 
 export class SignUp { 
-
     email: string;
     username: string;
     password: string;
