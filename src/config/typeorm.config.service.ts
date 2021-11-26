@@ -17,7 +17,7 @@ export class TypeOrmConfigService implements TypeOrmOptionsFactory {
       password: 'Dwin2020#',
       database: 'store',
       entities: [__dirname + '/../**/*.entity{.ts,.js}'],
-      synchronize: false,
+      synchronize: true,
       migrationsRun: true,
       migrationsTableName: "custom_migration_table",
       migrations: [__dirname + "migration/*.js"],

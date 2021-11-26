@@ -6,7 +6,6 @@ import { ICommandHandler, CommandHandler, EventBus } from "@nestjs/cqrs";
 import { getCustomRepository } from "typeorm";
 import { ProductsRepository } from "src/products/repositories/user.repository";
 import { Products } from "src/products/products.entity"
-import { ProductsCreatedEvent } from "src/products/events/impl/products-created.event";
 
 
 @CommandHandler(CreateProductsCommand)
@@ -24,14 +23,8 @@ export class CreateProductsHandler implements ICommandHandler<CreateProductsComm
         product.name = name;
         product.slug = slug;
         product.price = price;
-
-
-        
         const userDB: Products = await productsRepository.save(product);
-        
-        
         // this.sendEvent(this.eventBus);
-        
         return userDB;
     }
 

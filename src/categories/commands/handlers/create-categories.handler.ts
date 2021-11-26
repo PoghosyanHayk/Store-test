@@ -4,7 +4,6 @@ import { getCustomRepository } from "typeorm";
 import { CategoriesRepository } from "src/categories/repositories/categories.repository";
 import { Categories } from "src/categories/categories.entity"
 
-
 @CommandHandler(CreateCategoriesCommand)
 export class CreateCategoriesHandler implements ICommandHandler<CreateCategoriesCommand> {
     constructor(
@@ -12,20 +11,14 @@ export class CreateCategoriesHandler implements ICommandHandler<CreateCategories
     ) { }
 
     async execute(command: CreateCategoriesCommand) {
+        
         const { name, slug } = command;
         const productsRepository = getCustomRepository(CategoriesRepository);
- 
         const product = productsRepository.create();
         product.name = name;
         product.slug = slug;
-
-
-        
         const userDB: Categories = await productsRepository.save(product);
-        
-        
         // this.sendEvent(this.eventBus);
-        
         return userDB;
     }
 

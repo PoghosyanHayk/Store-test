@@ -19,7 +19,7 @@ type CreateCategoriesResponse {
 }
 
 type Mutation {
-  createCategories(input: CreatCategories!): CreateCategoriesResponse
+  createCategories(input: CreatCategories!): CreateCategoriesResponse!
 }
 
 schema {
