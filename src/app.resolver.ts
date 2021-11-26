@@ -1,6 +1,6 @@
 import { Mutation, Resolver, GqlExecutionContext } from '@nestjs/graphql';
 import { CommandBus } from '@nestjs/cqrs';
-import { createParamDecorator, ExecutionContext, Body, UseGuards } from '@nestjs/common';
+import { createParamDecorator, ExecutionContext, Body, UseGuards, Query } from '@nestjs/common';
 import { CreateUserCommand } from './users/commands/impl/create-user.command';
 import { LocalAuthGuard } from './auth/local-aut.guard';
 import { AuthPayload } from 'graphql.schema';

@@ -4,7 +4,7 @@ import { ICommandHandler, CommandHandler, EventBus } from "@nestjs/cqrs";
 // import { v4 as uuidv4 } from 'uuid';
 // import { ProductsCreatedEvent } from "src/users/events/impl/user-created.event";
 import { getCustomRepository } from "typeorm";
-import { ProductsRepository } from "src/products/repositories/user.repository";
+import { ProductsRepository } from "src/products/repositories/products.repository";
 import { Products } from "src/products/products.entity"
 
 
@@ -15,11 +15,11 @@ export class CreateProductsHandler implements ICommandHandler<CreateProductsComm
     ) { }
 
     async execute(command: CreateProductsCommand) {
-        const { categoryId, name, slug, price } = command;
+        const { category_id, name, slug, price } = command;
         const productsRepository = getCustomRepository(ProductsRepository);
  
         const product = productsRepository.create();
-        product.categoryId = categoryId;
+        product.category_id = category_id;
         product.name = name;
         product.slug = slug;
         product.price = price;

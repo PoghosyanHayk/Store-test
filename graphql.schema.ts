@@ -19,7 +19,7 @@ export class CreatCategories {
 }
 
 export class CreatProducts {
-    categoryId: number;
+    category_id: number;
     name: string;
     slug: string;
     price: number;
@@ -53,6 +53,8 @@ export class Categories {
 
 export abstract class IQuery {
     abstract me(): string | Promise<string>;
+
+    abstract getProducts(): Products[] | Promise<Products[]>;
 }
 
 export class CreateCategoriesResponse {
@@ -62,14 +64,14 @@ export class CreateCategoriesResponse {
 
 export class Products {
     id?: string;
-    categoryId: number;
+    category_id: number;
     name: string;
     slug: string;
     price: number;
 }
 
 export class CreateProductsResponse {
-    categoryId: number;
+    category_id: number;
     name: string;
     slug: string;
     price: number;

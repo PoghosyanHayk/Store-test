@@ -23,6 +23,8 @@ import { CategoriesModule } from './categories/categories.module';
     }),
     AuthModule,
     UsersModule,
+    ProductsModule,
+    CategoriesModule,
     ConfigModule.forRoot({ isGlobal: true, }),
     GraphQLModule.forRootAsync({
       useFactory: () => ({
@@ -43,10 +45,8 @@ import { CategoriesModule } from './categories/categories.module';
       inject: [ConfigService],
     }),
     CqrsModule,
-    ProductsModule,
-    CategoriesModule,
   ],
   controllers: [],
-  providers: [AppResolver, ProductsService, CategoriesService],
+  providers: [AppResolver],
 })
 export class AppModule {}

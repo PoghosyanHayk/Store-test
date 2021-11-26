@@ -7,8 +7,8 @@ export class Products {
   @Field(() => ID, { nullable: true })
   id?: number;
 
-  @Column('varchar', { name: 'categoryId' })
-  categoryId: number;
+  @Column('varchar', { name: 'category_id' })
+  category_id: number;
 
   @Column('varchar', { name: 'name' })
   name: string;
