@@ -10,7 +10,7 @@ export class Products {
 
   @ManyToOne(
     () => Categories,
-    category => category.praducts,
+    category => category.products,
   )
   category: Categories;
 

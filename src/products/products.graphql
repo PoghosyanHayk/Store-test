@@ -1,6 +1,6 @@
 type Products {
   id: ID
-  category_id: Int!
+  category: Category
   name: String!
   slug: String!
   price: Int!
@@ -11,7 +11,7 @@ type Query {
 }
 
 type Query {
-  getProducts: [Products]
+  getProducts(slug: String): [Products]
 }
 
 type Category {

@@ -54,7 +54,7 @@ export class Categories {
 export abstract class IQuery {
     abstract me(): string | Promise<string>;
 
-    abstract getProducts(): Products[] | Promise<Products[]>;
+    abstract getProducts(slug?: string): Products[] | Promise<Products[]>;
 }
 
 export class CreateCategoriesResponse {
@@ -64,7 +64,7 @@ export class CreateCategoriesResponse {
 
 export class Products {
     id?: string;
-    category_id: number;
+    category?: Category;
     name: string;
     slug: string;
     price: number;

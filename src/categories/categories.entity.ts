@@ -13,7 +13,6 @@ export class Categories {
 
   @Column('varchar', { name: 'slug' })
   slug: string;
-
   @OneToMany(() => Products, product => product.category)
-  praducts: Products[];
+  products: Products[];
 }
