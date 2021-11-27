@@ -21,7 +21,7 @@ export class CategoriesService {
         ],
       });
     } catch (error) {
-      console.log('errorerrorerror', error);
+      console.log('error', error);
     }
   }
 
@@ -33,6 +33,7 @@ export class CategoriesService {
             slug: Like(`%${slug || ''}%`),
           },
         ],
+        relations: ['products'],
       });
     } catch (error) {
       console.log('errorerrorerror', error);

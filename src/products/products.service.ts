@@ -11,6 +11,20 @@ export class ProductsService {
     private readonly productsRepository: Repository<ProductsRepository>,
   ) {}
 
+  async findById(id: number): Promise<ProductsRepository> {
+    try {
+      return await this.productsRepository.findOne({
+        where: [
+          {
+            id,
+          },
+        ],
+      });
+    } catch (error) {
+      console.log('error', error);
+    }
+  }
+
   async find(slug: string): Promise<Array<ProductsRepository>> {
     try {
       return await this.productsRepository.find({
@@ -22,7 +36,7 @@ export class ProductsService {
         relations: ['category'],
       });
     } catch (error) {
-      console.log('errorerrorerror', error);
+      console.log('error', error);
     }
   }
 }

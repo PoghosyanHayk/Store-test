@@ -5,19 +5,27 @@ import { CreateCategoriesHandler } from './commands/handlers/create-categories.h
 import { CategoriesCreatedEvent } from './events/impl/categories-created.event';
 import { CategoriesResolver } from './categories.resolver';
 import { CategoriesRepository } from './repositories/categories.repository';
-// import { CategoriesService } from './categories.service';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { ProductsRepository } from 'src/products/repositories/products.repository';
+import { ProductsService } from 'src/products/products.service';
+import { CategoriesService } from './categories.service';
 export const CommandHandlers = [CreateCategoriesHandler];
 export const QueryHandlers = [];
 export const EventHandlers = [CategoriesCreatedEvent];
-// UserCreatedEvent
+
 @Module({
-  imports: [CqrsModule],
+  imports: [
+    CqrsModule,
+    TypeOrmModule.forFeature([ProductsRepository, CategoriesRepository]),
+  ],
   providers: [
-    CategoriesRepository,
     CategoriesResolver,
     ...CommandHandlers,
     ...QueryHandlers,
     ...EventHandlers,
+    ProductsService,
+    CategoriesService,
   ],
+  exports: [CategoriesService, TypeOrmModule],
 })
 export class CategoriesModule {}

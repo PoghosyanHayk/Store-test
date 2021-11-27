@@ -2,10 +2,22 @@ type Categories {
   id: ID
   name: String!
   slug: String!
+  products: [Products]
 }
 
 type Query {
   me: String
+}
+
+type Query {
+  getCategories(slug: String): [Categories]
+}
+
+type Products {
+  id: ID
+  name: String
+  slug: String
+  price: Int
 }
 
 input CreatCategories {

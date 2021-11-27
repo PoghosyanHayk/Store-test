@@ -49,25 +49,28 @@ export class Categories {
     id?: string;
     name: string;
     slug: string;
+    products?: Products[];
 }
 
 export abstract class IQuery {
     abstract me(): string | Promise<string>;
 
+    abstract getCategories(slug?: string): Categories[] | Promise<Categories[]>;
+
     abstract getProducts(slug?: string): Products[] | Promise<Products[]>;
+}
+
+export class Products {
+    id?: string;
+    name: string;
+    slug: string;
+    price: number;
+    category?: Category;
 }
 
 export class CreateCategoriesResponse {
     name: string;
     slug: string;
-}
-
-export class Products {
-    id?: string;
-    category?: Category;
-    name: string;
-    slug: string;
-    price: number;
 }
 
 export class Category {
